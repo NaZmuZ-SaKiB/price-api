@@ -34,8 +34,10 @@ export default function RootLayout({
         <Providers>
           <AppSidebar />
           <main className="flex-1">
-            <SidebarTrigger />
-            {children}
+            <div className="border-b py-1 bg-transparent">
+              <SidebarTrigger className="size-8" />
+            </div>
+            <div className="max-w-screen-2xl mx-auto p-2">{children}</div>
           </main>
         </Providers>
         <Toaster closeButton richColors />
