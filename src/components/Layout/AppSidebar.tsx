@@ -25,12 +25,12 @@ const items = [
   },
   {
     title: "Price Updates",
-    url: "/price-updates",
+    url: "/price-updates?sortBy=lastModified&limit=50&sortOrder=desc",
     icon: () => <DollarSign />,
   },
   {
-    title: "Api Keys",
-    url: "/api-keys",
+    title: "Api Key",
+    url: "/api-key",
     icon: () => <Key />,
   },
 ];
