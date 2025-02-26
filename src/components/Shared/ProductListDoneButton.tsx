@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useProductUpdateQuery } from "@/lib/modules/product/product.query";
+import { useProductUpdateMutation } from "@/lib/modules/product/product.query";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -13,7 +13,7 @@ type TProps = {
 
 const ProductListDoneButton = ({ id, defaultDone }: TProps) => {
   const [done, setDone] = useState(defaultDone);
-  const { mutateAsync: updateProduct, isPending } = useProductUpdateQuery();
+  const { mutateAsync: updateProduct, isPending } = useProductUpdateMutation();
 
   const handleClick = async () => {
     try {
