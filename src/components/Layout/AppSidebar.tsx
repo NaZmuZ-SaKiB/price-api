@@ -20,7 +20,7 @@ const items = [
 
   {
     title: "Products",
-    url: "/products",
+    url: "/products?sortBy=lastModified&limit=50&sortOrder=desc",
     icon: () => <ShoppingBag />,
   },
   {
@@ -38,9 +38,11 @@ const items = [
 const AppSidebar = () => {
   return (
     <Sidebar>
-      <SidebarContent>
+      <SidebarContent className="bg-white">
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-slate-900 text-xl font-bold uppercase mb-2">
+            Price Api
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
