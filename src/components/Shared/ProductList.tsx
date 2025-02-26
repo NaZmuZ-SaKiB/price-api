@@ -2,6 +2,8 @@ import { TProduct } from "@/lib/modules/product/product.type";
 import { formatCurrency } from "@/utils/currencyFormat";
 import Image from "next/image";
 import Link from "next/link";
+import ProductListDoneButton from "./ProductListDoneButton";
+import { cn } from "@/lib/utils";
 
 type TProps = {
   products: TProduct[];
@@ -24,7 +26,12 @@ const ProductList = ({ products, highlight = false }: TProps) => {
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product._id.toString()}>
+            <tr
+              key={product._id.toString()}
+              className={cn({
+                "bg-green-100": highlight && !product.done,
+              })}
+            >
               <td className="w-[65px]">
                 <Image
                   src={product.image}
@@ -44,7 +51,14 @@ const ProductList = ({ products, highlight = false }: TProps) => {
               <td className="w-[120px] text-center">
                 {new Date(product.lastChecked).toLocaleDateString()}
               </td>
-              <td>Done</td>
+              <td>
+                <div className="flex justify-center">
+                  <ProductListDoneButton
+                    id={product?._id?.toString()}
+                    defaultDone={product.done}
+                  />
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
