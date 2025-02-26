@@ -27,7 +27,7 @@ const UpdateProducts = () => {
         <DataSortBySelect options={["lastModified", "createdAt", "price"]} />
         <DataSortOrderSelect />
       </div>
-      <ProductList products={products} highlight />
+      <ProductList products={products} />
       <DataPagination
         className="mt-4"
         limit={productData?.meta?.limit}
