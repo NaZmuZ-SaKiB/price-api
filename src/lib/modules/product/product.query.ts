@@ -8,7 +8,7 @@ export const useProductGetAllQuery = (params: string) =>
     queryFn: () => productGetAllAction(params),
   });
 
-export const useProductUpdateQuery = () =>
+export const useProductUpdateMutation = () =>
   useMutation({
     mutationFn: productUpdateAction,
   });
