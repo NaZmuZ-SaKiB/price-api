@@ -3,7 +3,7 @@
 import { BACKEND_URL } from "@/constants";
 import { TToken } from "./token.type";
 
-export const tokenCreateAction = async ({ payload }: { payload: TToken }) => {
+export const tokenCreateAction = async (payload: Partial<TToken>) => {
   const response = await fetch(`${BACKEND_URL}/api/token`, {
     method: "POST",
     headers: {
