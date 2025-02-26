@@ -49,6 +49,7 @@ const ApiKeyForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      access: "user",
       token: generateRandomString(16),
     },
   });
