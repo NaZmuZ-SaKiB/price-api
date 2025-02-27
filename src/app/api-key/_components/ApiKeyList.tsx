@@ -8,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import ApiKeyDeleteButton from "./ApiKeyDeleteButton";
+import DataPagination from "@/components/Shared/DataPagination";
 
 const ApiKeyList = () => {
   const [viewToken, setViewToken] = useState<boolean>(false);
@@ -88,6 +89,13 @@ const ApiKeyList = () => {
           ))}
         </tbody>
       </table>
+
+      <DataPagination
+        className="mt-4"
+        limit={apiKeyData?.meta?.limit}
+        page={apiKeyData?.meta?.page}
+        total={apiKeyData?.meta?.total}
+      />
     </div>
   );
 };
