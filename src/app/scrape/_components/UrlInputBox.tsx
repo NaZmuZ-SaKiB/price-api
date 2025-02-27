@@ -18,6 +18,11 @@ type TProps = {
 const UrlInputBox = ({ setResult }: TProps) => {
   const searchParams = useSearchParams();
 
+  let defaultValue = "";
+  if (searchParams.has("url")) {
+    defaultValue = decodeURIComponent(searchParams.get("url") as string) || "";
+  }
+
   const ref = useRef<HTMLInputElement>(null);
 
   const queryClient = useQueryClient();
@@ -64,7 +69,7 @@ const UrlInputBox = ({ setResult }: TProps) => {
         placeholder="Enter URL to scrape"
         className="!text-xl rounded-none text-sky-600 placeholder:text-slate-400 py-2 h-auto"
         ref={ref}
-        defaultValue={searchParams.get("url") || ""}
+        defaultValue={defaultValue}
       />
       <Button
         className="rounded-none h-auto px-8"
