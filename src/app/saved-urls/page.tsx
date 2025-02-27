@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import UrlList from "./_components/UrlList";
+import DataSearchBox from "@/components/Shared/DataSearchBox";
+import DataSortBySelect from "@/components/Shared/DataSortBySelect";
+import DataSortOrderSelect from "@/components/Shared/DataSortOrderSelect";
 
 const SavedUrlsPage = () => {
   return (
@@ -13,6 +16,11 @@ const SavedUrlsPage = () => {
             <Plus /> Add New
           </Button>
         </Link>
+      </div>
+      <DataSearchBox className="mb-4" />
+      <div className="mb-4 flex gap-4">
+        <DataSortBySelect options={["name", "createdAt", "updatedAt"]} />
+        <DataSortOrderSelect />
       </div>
       <UrlList />
     </div>
