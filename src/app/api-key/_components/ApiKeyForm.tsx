@@ -73,10 +73,10 @@ const ApiKeyForm = () => {
 
         router.push("/api-key");
       } else {
-        toast.error(result?.message || "A Client Error Occured.");
+        toast.error(result?.message || "A Server Error Occured.");
       }
     } catch (error: any) {
-      toast.error(error?.message || "A Server Error Occured.");
+      toast.error(error?.message || "A Client Error Occured.");
     }
   };
 
