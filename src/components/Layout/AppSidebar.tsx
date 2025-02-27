@@ -1,4 +1,10 @@
-import { DollarSign, Key, LayoutDashboard, ShoppingBag } from "lucide-react";
+import {
+  DollarSign,
+  Key,
+  LayoutDashboard,
+  ScanText,
+  ShoppingBag,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -27,6 +33,11 @@ const items = [
     title: "Price Updates",
     url: "/price-updates?sortBy=lastModified&limit=50&sortOrder=desc",
     icon: () => <DollarSign />,
+  },
+  {
+    title: "Scrape",
+    url: "/scrape",
+    icon: () => <ScanText />,
   },
   {
     title: "Api Key",
