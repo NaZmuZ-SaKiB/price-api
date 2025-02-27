@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import UrlList from "./_components/UrlList";
 
 const SavedUrlsPage = () => {
   return (
@@ -13,6 +14,7 @@ const SavedUrlsPage = () => {
           </Button>
         </Link>
       </div>
+      <UrlList />
     </div>
   );
 };
