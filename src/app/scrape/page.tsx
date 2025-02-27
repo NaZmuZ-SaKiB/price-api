@@ -32,7 +32,7 @@ const ScrapePage = () => {
               <span>{data?.newProducts},</span>
             </div>
             <div>
-              <span className="font-semibold">Updated Products: </span>
+              <span className="font-semibold">Price Updates: </span>
               <span>{data?.updatedProducts}</span>
             </div>
           </div>
