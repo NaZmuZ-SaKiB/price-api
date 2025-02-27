@@ -58,7 +58,7 @@ const UrlDeleteButton = ({ id, children }: TProps) => {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
 
-      <AlertDialogContent>
+      <AlertDialogContent className="!rounded-none">
         <AlertDialogHeader>
           <AlertDialogTitle>
             Are you sure you want to delete this URL?
@@ -80,8 +80,9 @@ const UrlDeleteButton = ({ id, children }: TProps) => {
         </label>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="rounded-none">Cancel</AlertDialogCancel>
           <Button
+            className="rounded-none"
             disabled={disabled || isPending}
             variant="destructive"
             onClick={handleDelete}
