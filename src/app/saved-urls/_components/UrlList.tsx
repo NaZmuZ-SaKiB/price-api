@@ -37,7 +37,7 @@ const UrlList = () => {
                 <Link href={url.url}>{url.url}</Link>
               </td>
               <td>
-                <Link href={`/scrape?url=${url.url}`}>
+                <Link href={`/scrape?url=${encodeURIComponent(url.url)}`}>
                   <Button
                     className="rounded-none"
                     variant="outline"
