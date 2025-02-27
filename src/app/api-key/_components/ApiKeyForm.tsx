@@ -195,7 +195,7 @@ const ApiKeyForm = () => {
             </FormItem>
           )}
         />
-        <Button disabled={isPending} type="submit">
+        <Button disabled={isPending} type="submit" className="rounded-none">
           {isPending ? "Creating..." : "Create Token"}
         </Button>
       </form>
