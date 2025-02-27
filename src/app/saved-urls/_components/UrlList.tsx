@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { useUrlGetAllQuery } from "@/lib/modules/url/url.query";
 import { TUrl } from "@/lib/modules/url/url.type";
-import { ScanText } from "lucide-react";
+import { ScanText, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import UrlDeleteButton from "./UrlDeleteButton";
 
 const UrlList = () => {
   const searchParams = useSearchParams();
@@ -37,15 +38,27 @@ const UrlList = () => {
                 <Link href={url.url}>{url.url}</Link>
               </td>
               <td>
-                <Link href={`/scrape?url=${encodeURIComponent(url.url)}`}>
-                  <Button
-                    className="rounded-none"
-                    variant="outline"
-                    size="icon"
-                  >
-                    <ScanText />
-                  </Button>
-                </Link>
+                <div className="flex items-center justify-center gap-2">
+                  <Link href={`/scrape?url=${encodeURIComponent(url.url)}`}>
+                    <Button
+                      className="rounded-none"
+                      variant="outline"
+                      size="icon"
+                    >
+                      <ScanText />
+                    </Button>
+                  </Link>
+
+                  <UrlDeleteButton id={url._id?.toString()}>
+                    <Button
+                      className="rounded-none text-red-500 hover:text-red-500"
+                      variant="outline"
+                      size="icon"
+                    >
+                      <Trash2 />
+                    </Button>
+                  </UrlDeleteButton>
+                </div>
               </td>
             </tr>
           ))}
