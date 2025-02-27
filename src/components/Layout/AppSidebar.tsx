@@ -58,7 +58,7 @@ const AppSidebar = () => {
       <SidebarContent className="bg-white">
         <SidebarGroup>
           <SidebarGroupLabel className="text-slate-900 text-xl font-bold uppercase mb-2">
-            Price Api
+            <Link href="/">Price Api</Link>
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
