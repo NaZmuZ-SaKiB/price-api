@@ -7,6 +7,7 @@ import { Tags } from "@/constants/tags";
 import { useScrapeMutation } from "@/lib/modules/scrape/scrape.query";
 import { useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useRef } from "react";
 import { toast } from "sonner";
 
@@ -15,6 +16,8 @@ type TProps = {
 };
 
 const UrlInputBox = ({ setResult }: TProps) => {
+  const searchParams = useSearchParams();
+
   const ref = useRef<HTMLInputElement>(null);
 
   const queryClient = useQueryClient();
@@ -61,6 +64,7 @@ const UrlInputBox = ({ setResult }: TProps) => {
         placeholder="Enter URL to scrape"
         className="!text-xl rounded-none text-sky-600 placeholder:text-slate-400 py-2 h-auto"
         ref={ref}
+        defaultValue={searchParams.get("url") || ""}
       />
       <Button
         className="rounded-none h-auto px-8"
