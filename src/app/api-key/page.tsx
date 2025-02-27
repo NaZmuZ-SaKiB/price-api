@@ -2,6 +2,9 @@ import Link from "next/link";
 import ApiKeyList from "./_components/ApiKeyList";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import DataSearchBox from "@/components/Shared/DataSearchBox";
+import DataSortBySelect from "@/components/Shared/DataSortBySelect";
+import DataSortOrderSelect from "@/components/Shared/DataSortOrderSelect";
 
 const ApiKeyPage = () => {
   return (
@@ -13,6 +16,11 @@ const ApiKeyPage = () => {
             <Plus /> Add New
           </Button>
         </Link>
+      </div>
+      <DataSearchBox className="mb-4" />
+      <div className="mb-4 flex gap-4">
+        <DataSortBySelect options={["name", "createdAt", "updatedAt"]} />
+        <DataSortOrderSelect />
       </div>
       <ApiKeyList />
     </div>
