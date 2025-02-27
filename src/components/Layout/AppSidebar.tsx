@@ -2,6 +2,7 @@ import {
   DollarSign,
   Key,
   LayoutDashboard,
+  LinkIcon,
   ScanText,
   ShoppingBag,
 } from "lucide-react";
@@ -38,6 +39,11 @@ const items = [
     title: "Scrape",
     url: "/scrape",
     icon: () => <ScanText />,
+  },
+  {
+    title: "Saved Urls",
+    url: "/saved-urls",
+    icon: () => <LinkIcon />,
   },
   {
     title: "Api Key",
