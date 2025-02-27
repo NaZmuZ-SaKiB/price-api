@@ -7,6 +7,7 @@ import { ScanText, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import UrlDeleteButton from "./UrlDeleteButton";
+import DataPagination from "@/components/Shared/DataPagination";
 
 const UrlList = () => {
   const searchParams = useSearchParams();
@@ -64,6 +65,13 @@ const UrlList = () => {
           ))}
         </tbody>
       </table>
+
+      <DataPagination
+        className="mt-4"
+        limit={urlData?.meta?.limit}
+        page={urlData?.meta?.page}
+        total={urlData?.meta?.total}
+      />
     </div>
   );
 };
