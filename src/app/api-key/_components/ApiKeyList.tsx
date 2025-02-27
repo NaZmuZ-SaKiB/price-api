@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { useTokenGetAllQuery } from "@/lib/modules/token/token.query";
 import { TToken } from "@/lib/modules/token/token.type";
-import { Copy, Eye, EyeOff } from "lucide-react";
+import { Copy, Eye, EyeOff, Trash2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import ApiKeyDeleteButton from "./ApiKeyDeleteButton";
 
 const ApiKeyList = () => {
   const [viewToken, setViewToken] = useState<boolean>(false);
@@ -59,17 +60,29 @@ const ApiKeyList = () => {
               <td>{apiKey.access}</td>
               <td>{new Date(apiKey.exp).toLocaleDateString()}</td>
               <td>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="cursor-pointer"
-                  onClick={() => {
-                    navigator.clipboard.writeText(apiKey.token);
-                    toast.message("Copied to clipboard.");
-                  }}
-                >
-                  <Copy className="w-4" />
-                </Button>
+                <div className="flex items-center justify-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="cursor-pointer rounded-none"
+                    onClick={() => {
+                      navigator.clipboard.writeText(apiKey.token);
+                      toast.message("Copied to clipboard.");
+                    }}
+                  >
+                    <Copy className="w-4" />
+                  </Button>
+
+                  <ApiKeyDeleteButton id={apiKey._id?.toString()}>
+                    <Button
+                      className="rounded-none text-red-500 hover:text-red-500"
+                      variant="outline"
+                      size="icon"
+                    >
+                      <Trash2 />
+                    </Button>
+                  </ApiKeyDeleteButton>
+                </div>
               </td>
             </tr>
           ))}
