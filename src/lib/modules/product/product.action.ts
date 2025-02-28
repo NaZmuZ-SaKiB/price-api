@@ -24,6 +24,20 @@ export const productGetAllAction = async (params: string) => {
   return result;
 };
 
+export const productGetUpdateCountAction = async () => {
+  const response = await fetch(`${BACKEND_URL}/api/product/update-count`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store",
+  });
+
+  const result = await response.json();
+
+  return result;
+};
+
 export const productUpdateAction = async ({
   id,
   payload,
