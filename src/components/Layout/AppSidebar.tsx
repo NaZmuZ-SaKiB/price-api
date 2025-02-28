@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DollarSign,
   Key,
@@ -17,6 +19,7 @@ import {
   SidebarMenuItem,
 } from "../ui/sidebar";
 import Link from "next/link";
+import { useProductGetUpdateCountQuery } from "@/lib/modules/product/product.query";
 
 const items = [
   {
@@ -53,6 +56,12 @@ const items = [
 ];
 
 const AppSidebar = () => {
+  const { data, isLoading } = useProductGetUpdateCountQuery();
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <Sidebar>
       <SidebarContent className="bg-white">
@@ -62,16 +71,25 @@ const AppSidebar = () => {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const count = data?.data?.count;
+
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <Link href={item.url}>
+                        <item.icon />
+                        <span>
+                          {item.title}{" "}
+                          {item.title === "Price Updates"
+                            ? count > 0 && `(${count})`
+                            : ""}
+                        </span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
