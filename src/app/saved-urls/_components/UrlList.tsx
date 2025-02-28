@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useUrlGetAllQuery } from "@/lib/modules/url/url.query";
 import { TUrl } from "@/lib/modules/url/url.type";
-import { ScanText, Trash2 } from "lucide-react";
+import { Edit, ScanText, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import UrlDeleteButton from "./UrlDeleteButton";
@@ -47,6 +47,16 @@ const UrlList = () => {
                       size="icon"
                     >
                       <ScanText />
+                    </Button>
+                  </Link>
+
+                  <Link href={`/saved-urls/edit/${url?._id}`}>
+                    <Button
+                      className="rounded-none"
+                      variant="outline"
+                      size="icon"
+                    >
+                      <Edit />
                     </Button>
                   </Link>
 
