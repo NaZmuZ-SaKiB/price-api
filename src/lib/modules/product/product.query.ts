@@ -8,6 +8,12 @@ export const useProductGetAllQuery = (params: string) =>
     queryFn: () => productGetAllAction(params),
   });
 
+export const useProductGetUpdateCountQuery = (params: string) =>
+  useQuery({
+    queryKey: [Tags.PRODUCT, "update-count"],
+    queryFn: () => productGetAllAction(params),
+  });
+
 export const useProductUpdateMutation = () =>
   useMutation({
     mutationFn: productUpdateAction,
