@@ -1,21 +1,16 @@
-"use client";
-
-import { useUrlGetByIdQuery } from "@/lib/modules/url/url.query";
 import { TUrl } from "@/lib/modules/url/url.type";
-import { useParams } from "next/navigation";
 import UrlUpdateForm from "../../_components/UrlUpdateForm";
+import { urlGetByIdAction } from "@/lib/modules/url/url.action";
 
-const EditUrlPage = () => {
-  const params = useParams();
+type TProps = {
+  params: Promise<{ id: string }>;
+};
 
-  const { data: urlData, isLoading: urlLoading } = useUrlGetByIdQuery(
-    params.id as string
-  );
-  const urlinfo: TUrl = urlData?.data;
+const EditUrlPage = async ({ params }: TProps) => {
+  const id = (await params).id;
 
-  if (urlLoading) {
-    return <div>Loading...</div>;
-  }
+  const urlData = await urlGetByIdAction(id);
+  const urlinfo = urlData?.data as TUrl;
 
   return (
     <div>
