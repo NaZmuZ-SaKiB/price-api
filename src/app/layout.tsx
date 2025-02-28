@@ -40,7 +40,7 @@ export default function RootLayout({
             <div className="max-w-screen-2xl mx-auto p-2">{children}</div>
           </main>
         </Providers>
-        <Toaster closeButton richColors />
+        <Toaster closeButton />
       </body>
     </html>
   );
