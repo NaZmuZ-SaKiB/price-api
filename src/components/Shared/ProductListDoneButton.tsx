@@ -5,6 +5,8 @@ import { useProductUpdateMutation } from "@/lib/modules/product/product.query";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useQueryClient } from "@tanstack/react-query";
+import { Tags } from "@/constants/tags";
 
 type TProps = {
   id: string;
@@ -15,6 +17,8 @@ const ProductListDoneButton = ({ id, defaultDone }: TProps) => {
   const [done, setDone] = useState(defaultDone);
   const { mutateAsync: updateProduct, isPending } = useProductUpdateMutation();
 
+  const queryClient = useQueryClient();
+
   const handleClick = async () => {
     try {
       const result = await updateProduct({ id, payload: { done: true } });
@@ -22,6 +26,11 @@ const ProductListDoneButton = ({ id, defaultDone }: TProps) => {
       if (result?.success) {
         setDone(true);
         toast.success(result?.message);
+
+        queryClient.invalidateQueries({
+          queryKey: [Tags.PRODUCT, "update-count"],
+          exact: false,
+        });
       } else {
         toast.error(result?.message || "A Server Error Occured.");
       }
