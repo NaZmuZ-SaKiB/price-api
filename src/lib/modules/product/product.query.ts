@@ -1,6 +1,10 @@
 import { Tags } from "@/constants/tags";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { productGetAllAction, productUpdateAction } from "./product.action";
+import {
+  productGetAllAction,
+  productGetUpdateCountAction,
+  productUpdateAction,
+} from "./product.action";
 
 export const useProductGetAllQuery = (params: string) =>
   useQuery({
@@ -8,10 +12,10 @@ export const useProductGetAllQuery = (params: string) =>
     queryFn: () => productGetAllAction(params),
   });
 
-export const useProductGetUpdateCountQuery = (params: string) =>
+export const useProductGetUpdateCountQuery = () =>
   useQuery({
     queryKey: [Tags.PRODUCT, "update-count"],
-    queryFn: () => productGetAllAction(params),
+    queryFn: productGetUpdateCountAction,
   });
 
 export const useProductUpdateMutation = () =>
