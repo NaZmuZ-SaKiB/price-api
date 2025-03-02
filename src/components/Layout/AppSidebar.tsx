@@ -2,6 +2,7 @@
 
 import {
   DollarSign,
+  History,
   Key,
   LayoutDashboard,
   LinkIcon,
@@ -47,6 +48,11 @@ const items = [
     title: "Saved Urls",
     url: "/saved-urls",
     icon: () => <LinkIcon />,
+  },
+  {
+    title: "History",
+    url: "/history",
+    icon: () => <History />,
   },
   {
     title: "Api Key",
