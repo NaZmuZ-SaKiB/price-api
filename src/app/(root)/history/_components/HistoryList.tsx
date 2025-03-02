@@ -24,8 +24,10 @@ const HistoryList = () => {
         <thead>
           <tr>
             <th>URL</th>
-            <th>Date</th>
             <th>Time</th>
+            <th>Total</th>
+            <th>New</th>
+            <th>Updates</th>
             <th>Scraped By</th>
           </tr>
         </thead>
@@ -40,10 +42,15 @@ const HistoryList = () => {
                   {history.url}
                 </Link>
               </td>
-              <td className="text-center">{formatDate(history.createdAt)}</td>
               <td className="text-center">
+                {formatDate(history.createdAt)} at{" "}
                 {formatTime12HrFormat(history.createdAt)}
               </td>
+              <td className="text-center">
+                {history.totalProducts} items in {history.totalPages} pages
+              </td>
+              <th className="text-center">{history.newProducts}</th>
+              <th className="text-center">{history.updatedProducts}</th>
               <td className="text-center">{history.scrapedBy.name}</td>
             </tr>
           ))}
