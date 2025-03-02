@@ -10,7 +10,7 @@ const formatDate = (inputDate: string | Date): string => {
   } else if (inputMoment.isSame(yesterday, "day")) {
     return "yesterday";
   } else {
-    return inputMoment.format("YYYY-MM-DD");
+    return inputMoment.format("DD-MM-YYYY");
   }
 };
 
