@@ -1,13 +1,15 @@
 "use server";
 
-import { BACKEND_URL } from "@/constants";
+import { AUTH_KEY, BACKEND_URL } from "@/constants";
 import { TToken } from "./token.type";
+import { cookies } from "next/headers";
 
 export const tokenCreateAction = async (payload: Partial<TToken>) => {
   const response = await fetch(`${BACKEND_URL}/api/token`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     body: JSON.stringify(payload),
     cache: "no-store",
@@ -23,6 +25,7 @@ export const tokenGetAllAction = async (params: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -44,6 +47,7 @@ export const tokenGetByIdAction = async (id: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -58,6 +62,7 @@ export const tokenDeleteByIdAction = async (id: string) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -72,6 +77,7 @@ export const tokenDeleteExpiredAction = async () => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
