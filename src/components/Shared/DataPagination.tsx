@@ -88,7 +88,8 @@ const DataPagination = ({ limit, page, total, className }: TProps) => {
       </Pagination>
 
       <p className="text-sm shrink-0">
-        Showing {limit} of {total} ({Math.ceil(total / limit)} Pages).
+        Showing {limit > total ? total : limit} of {total} (
+        {Math.ceil(total / limit)} Pages).
       </p>
     </div>
   );
