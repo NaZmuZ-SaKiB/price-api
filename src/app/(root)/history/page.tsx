@@ -2,13 +2,15 @@ import DataSearchBox from "@/components/Shared/DataSearchBox";
 import DataSortBySelect from "@/components/Shared/DataSortBySelect";
 import DataSortOrderSelect from "@/components/Shared/DataSortOrderSelect";
 import HistoryList from "./_components/HistoryList";
+import ClearHistoryButton from "./_components/ClearHistoryButton";
 
 const HistoryPage = () => {
   return (
     <div>
-      <h1 className="text-xl uppercase font-bold text-slate-700 mb-4">
-        History
-      </h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-xl uppercase font-bold text-slate-700">History</h1>
+        <ClearHistoryButton />
+      </div>
 
       <DataSearchBox className="mb-4" />
       <div className="mb-4 flex gap-4">
