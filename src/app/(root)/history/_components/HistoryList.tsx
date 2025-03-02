@@ -3,6 +3,7 @@
 import DataPagination from "@/components/Shared/DataPagination";
 import { useHistoryGetAllQuery } from "@/lib/modules/history/history.query";
 import { THistory } from "@/lib/modules/history/history.type";
+import formatDate from "@/utils/formatDate";
 import formatTime12HrFormat from "@/utils/formatTime12Hr";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -39,11 +40,9 @@ const HistoryList = () => {
                   {history.url}
                 </Link>
               </td>
+              <td className="text-center">{formatDate(history.createdAt)}</td>
               <td className="text-center">
-                {new Date(history.createdAt).toLocaleDateString()}
-              </td>
-              <td className="text-center">
-                {formatTime12HrFormat(new Date(history.createdAt))}
+                {formatTime12HrFormat(history.createdAt)}
               </td>
               <td className="text-center">{history.scrapedBy.name}</td>
             </tr>
