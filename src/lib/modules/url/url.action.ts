@@ -1,13 +1,15 @@
 "use server";
 
-import { BACKEND_URL } from "@/constants";
+import { AUTH_KEY, BACKEND_URL } from "@/constants";
 import { TUrl } from "./url.type";
+import { cookies } from "next/headers";
 
 export const urlCreateAction = async (payload: Partial<TUrl>) => {
   const response = await fetch(`${BACKEND_URL}/api/url`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     body: JSON.stringify(payload),
     cache: "no-store",
@@ -23,6 +25,7 @@ export const urlGetByIdAction = async (id: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -37,6 +40,7 @@ export const urlGetAllAction = async (params: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -64,6 +68,7 @@ export const urlUpdateAction = async ({
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     body: JSON.stringify(payload),
     cache: "no-store",
@@ -79,6 +84,7 @@ export const urlDeleteByIdAction = async (id: string) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
