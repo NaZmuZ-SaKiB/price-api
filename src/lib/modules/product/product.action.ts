@@ -1,13 +1,15 @@
 "use server";
 
-import { BACKEND_URL } from "@/constants";
+import { AUTH_KEY, BACKEND_URL } from "@/constants";
 import { TProduct } from "./product.type";
+import { cookies } from "next/headers";
 
 export const productGetAllAction = async (params: string) => {
   const response = await fetch(`${BACKEND_URL}/api/product?${params}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -29,6 +31,7 @@ export const productGetUpdateCountAction = async () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     cache: "no-store",
   });
@@ -49,6 +52,7 @@ export const productUpdateAction = async ({
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
     },
     body: JSON.stringify(payload),
     cache: "no-store",
