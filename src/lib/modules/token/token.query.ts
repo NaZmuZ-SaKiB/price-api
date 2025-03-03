@@ -1,5 +1,6 @@
 import { Tags } from "@/constants/tags";
 import {
+  dashboardAction,
   tokenCreateAction,
   tokenDeleteByIdAction,
   tokenDeleteExpiredAction,
@@ -33,4 +34,10 @@ export const useTokenDeleteByIdMutation = () =>
 export const useTokenDeleteExpiredMutation = () =>
   useMutation({
     mutationFn: tokenDeleteExpiredAction,
+  });
+
+export const useDashboardQuery = () =>
+  useQuery({
+    queryKey: [Tags.DASHBOARD],
+    queryFn: dashboardAction,
   });
