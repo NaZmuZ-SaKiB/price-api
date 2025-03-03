@@ -1,3 +1,11 @@
-export default function Home() {
-  return <div></div>;
-}
+import DashboardData from "../_components/DashboardData";
+
+const Home = () => {
+  return (
+    <div>
+      <DashboardData />
+    </div>
+  );
+};
+
+export default Home;
