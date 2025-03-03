@@ -86,3 +86,18 @@ export const tokenDeleteExpiredAction = async () => {
 
   return result;
 };
+
+export const dashboardAction = async () => {
+  const response = await fetch(`${BACKEND_URL}/api/token/dashboard`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
+    },
+    cache: "no-store",
+  });
+
+  const result = await response.json();
+
+  return result;
+};
