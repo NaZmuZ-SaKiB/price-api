@@ -3,5 +3,6 @@ export const Tags = {
   TOKEN: "token",
   URL: "url",
   HISTORY: "history",
+  DASHBOARD: "dashboard",
   ALL: "all",
 };
