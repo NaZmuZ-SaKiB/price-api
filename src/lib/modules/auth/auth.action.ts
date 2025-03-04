@@ -5,6 +5,7 @@ import { AUTH_KEY, BACKEND_URL } from "@/constants";
 import { jwtHelpers } from "@/utils/jwtHelpers";
 import { cookies } from "next/headers";
 import { TTokenAccess } from "../token/token.type";
+import { redirect } from "next/navigation";
 
 export const signInAction = async (payload: { token: string }) => {
   const response = await fetch(`${BACKEND_URL}/api/token/sign-in`, {
@@ -35,6 +36,7 @@ export const signInAction = async (payload: { token: string }) => {
 
 export const signOutAction = async () => {
   (await cookies()).delete(AUTH_KEY);
+  redirect("/sign-in");
 };
 
 export const isTokenValidAction = async (): Promise<{
