@@ -65,7 +65,7 @@ const SignInForm = () => {
                 <Input
                   placeholder="Enter Your Token"
                   className="rounded-none"
-                  type="text"
+                  type="password"
                   {...field}
                 />
               </FormControl>
