@@ -63,7 +63,7 @@ const SignInForm = () => {
               <FormLabel>Token</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Enter Your Token"
+                  placeholder="Enter Your Api Key"
                   className="rounded-none"
                   type="password"
                   {...field}
