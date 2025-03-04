@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/Layout/app-sidebar/AppSidebar";
 import Providers from "@/lib/providers/Providers";
 import { Toaster } from "sonner";
+import Topbar from "@/components/Layout/Topbar/Topbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +34,7 @@ export default function RootLayout({
         <Providers>
           <AppSidebar />
           <main className="flex-1">
-            <div className="border-b py-1 bg-transparent">
-              <SidebarTrigger className="size-8" />
-            </div>
+            <Topbar />
             <div className="max-w-screen-2xl mx-auto p-2">{children}</div>
           </main>
         </Providers>
