@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import DataSearchBox from "@/components/Shared/DataSearchBox";
 import DataSortBySelect from "@/components/Shared/DataSortBySelect";
 import DataSortOrderSelect from "@/components/Shared/DataSortOrderSelect";
+import DeleteExpiredKeysButton from "./_components/DeleteExpiredKeysButton";
 
 const ApiKeyPage = () => {
   return (
@@ -21,6 +22,7 @@ const ApiKeyPage = () => {
       <div className="mb-4 flex gap-4">
         <DataSortBySelect options={["name", "createdAt", "updatedAt"]} />
         <DataSortOrderSelect />
+        <DeleteExpiredKeysButton />
       </div>
       <ApiKeyList />
     </div>
