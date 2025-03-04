@@ -42,6 +42,7 @@ export const signOutAction = async () => {
 export const isTokenValidAction = async (): Promise<{
   token: string;
   access: TTokenAccess;
+  name: string;
 } | null> => {
   try {
     const jwt = (await cookies()).get(AUTH_KEY);
