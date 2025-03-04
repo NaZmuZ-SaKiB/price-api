@@ -11,14 +11,14 @@ const Account = async () => {
 
   return (
     <div className="flex items-center gap-2">
-      <span>{data?.access === "admin" ? "Admin" : "User"}</span>
       <Form action={signOutAction}>
         <Button
           variant="outline"
-          size="icon"
+          size="sm"
           type="submit"
-          className="border-none size-8"
+          className="border-none"
         >
+          <span className="text-sm font-semibold">{data?.name}</span>
           <LogOut />
         </Button>
       </Form>
