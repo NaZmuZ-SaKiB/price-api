@@ -1,6 +1,7 @@
 import { Tags } from "@/constants/tags";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
+  productDeleteNotInStockAction,
   productGetAllAction,
   productGetUpdateCountAction,
   productUpdateAction,
@@ -21,4 +22,9 @@ export const useProductGetUpdateCountQuery = () =>
 export const useProductUpdateMutation = () =>
   useMutation({
     mutationFn: productUpdateAction,
+  });
+
+export const useProductDeleteNotInStockMutation = () =>
+  useMutation({
+    mutationFn: productDeleteNotInStockAction,
   });
