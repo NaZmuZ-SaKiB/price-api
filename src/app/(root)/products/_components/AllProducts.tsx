@@ -8,6 +8,7 @@ import ProductList from "@/components/Shared/ProductList";
 import { useProductGetAllQuery } from "@/lib/modules/product/product.query";
 import { TProduct } from "@/lib/modules/product/product.type";
 import { useSearchParams } from "next/navigation";
+import DeleteNotInStockButton from "./DeleteNotInStockButton";
 
 const AllProducts = () => {
   const searchParams = useSearchParams();
@@ -26,6 +27,7 @@ const AllProducts = () => {
       <div className="mb-4 flex gap-4">
         <DataSortBySelect options={["lastModified", "createdAt", "price"]} />
         <DataSortOrderSelect />
+        <DeleteNotInStockButton />
       </div>
       <ProductList products={products} highlight />
       <DataPagination
