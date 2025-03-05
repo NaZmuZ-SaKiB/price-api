@@ -62,3 +62,21 @@ export const productUpdateAction = async ({
 
   return result;
 };
+
+export const productDeleteNotInStockAction = async () => {
+  const response = await fetch(
+    `${BACKEND_URL}/api/product/remove-not-in-stock`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: (await cookies()).get(AUTH_KEY)?.value || "",
+      },
+      cache: "no-store",
+    }
+  );
+
+  const result = await response.json();
+
+  return result;
+};
