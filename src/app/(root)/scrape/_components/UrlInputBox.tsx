@@ -46,7 +46,7 @@ const UrlInputBox = ({ setResult }: TProps) => {
       if (result?.success) {
         setResult(result?.data);
         queryClient.invalidateQueries({
-          queryKey: [Tags.PRODUCT, Tags.ALL],
+          queryKey: [Tags.PRODUCT, Tags.ALL, "update-count"],
           exact: false,
         });
         toast.success(result?.message, { id: loadingId });
