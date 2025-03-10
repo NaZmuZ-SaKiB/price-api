@@ -133,58 +133,25 @@ const ScrapePage = () => {
               </TabsTrigger>
             </TabsList>
 
-            <div className="mt-4">
-              <Button
-                type="button"
-                size="sm"
-                disabled={!data?.products?.length}
-                className="rounded-none bg-sky-500 hover:bg-sky-600"
-                onClick={() =>
-                  printTable(
-                    allRef.current!,
-                    `${
-                      data?.updatedProducts
-                    } All Products - ${new Date().toLocaleDateString()}`
-                  )
-                }
-              >
-                <Printer /> Print All Products
-              </Button>
-              <Button
-                type="button"
-                size="sm"
-                disabled={!data?.newProducts}
-                className="rounded-none bg-sky-500 hover:bg-sky-600"
-                onClick={() =>
-                  printTable(
-                    newRef.current!,
-                    `${
-                      data?.newProducts
-                    } New Products - ${new Date().toLocaleDateString()}`
-                  )
-                }
-              >
-                <Printer /> Print New Products
-              </Button>
-              <Button
-                type="button"
-                size="sm"
-                disabled={!data?.updatedProducts}
-                className="rounded-none bg-sky-500 hover:bg-sky-600"
-                onClick={() =>
-                  printTable(
-                    updateRef.current!,
-                    `${
-                      data?.updatedProducts
-                    } Updated Products - ${new Date().toLocaleDateString()}`
-                  )
-                }
-              >
-                <Printer /> Print Updated Products
-              </Button>
-            </div>
-
             <TabsContent value="all">
+              <div className="mt-4">
+                <Button
+                  type="button"
+                  size="sm"
+                  disabled={!data?.products?.length}
+                  className="rounded-none bg-sky-500 hover:bg-sky-600"
+                  onClick={() =>
+                    printTable(
+                      allRef.current!,
+                      `${
+                        data?.updatedProducts
+                      } All Products - ${new Date().toLocaleDateString()}`
+                    )
+                  }
+                >
+                  <Printer /> Print All Products
+                </Button>
+              </div>
               <table
                 className="table table-auto primary-table mt-4"
                 ref={allRef}
@@ -225,6 +192,24 @@ const ScrapePage = () => {
             </TabsContent>
 
             <TabsContent value="new">
+              <div className="mt-4">
+                <Button
+                  type="button"
+                  size="sm"
+                  disabled={!data?.newProducts}
+                  className="rounded-none bg-sky-500 hover:bg-sky-600"
+                  onClick={() =>
+                    printTable(
+                      newRef.current!,
+                      `${
+                        data?.newProducts
+                      } New Products - ${new Date().toLocaleDateString()}`
+                    )
+                  }
+                >
+                  <Printer /> Print New Products
+                </Button>
+              </div>
               <table
                 className="table table-auto primary-table mt-4"
                 ref={newRef}
@@ -266,6 +251,24 @@ const ScrapePage = () => {
             </TabsContent>
 
             <TabsContent value="update">
+              <div className="mt-4">
+                <Button
+                  type="button"
+                  size="sm"
+                  disabled={!data?.updatedProducts}
+                  className="rounded-none bg-sky-500 hover:bg-sky-600"
+                  onClick={() =>
+                    printTable(
+                      updateRef.current!,
+                      `${
+                        data?.updatedProducts
+                      } Updated Products - ${new Date().toLocaleDateString()}`
+                    )
+                  }
+                >
+                  <Printer /> Print Updated Products
+                </Button>
+              </div>
               <table
                 className="table table-auto primary-table mt-4"
                 ref={updateRef}
