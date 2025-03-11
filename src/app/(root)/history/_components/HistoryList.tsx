@@ -54,6 +54,16 @@ const HistoryList = () => {
               <td className="text-center">{history.scrapedBy.name}</td>
             </tr>
           ))}
+          {history.length === 0 && (
+            <tr>
+              <td
+                colSpan={6}
+                className="text-center text-2xl !py-5 font-semibold"
+              >
+                No History
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
       <DataPagination

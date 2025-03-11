@@ -61,6 +61,16 @@ const ProductList = ({ products, highlight = false }: TProps) => {
               </td>
             </tr>
           ))}
+          {products.length === 0 && (
+            <tr>
+              <td
+                colSpan={6}
+                className="text-center text-2xl !py-5 font-semibold"
+              >
+                No Products
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

@@ -73,6 +73,16 @@ const UrlList = () => {
               </td>
             </tr>
           ))}
+          {urls.length === 0 && (
+            <tr>
+              <td
+                colSpan={3}
+                className="text-center text-2xl !py-5 font-semibold"
+              >
+                No URL
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
 
