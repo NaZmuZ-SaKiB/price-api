@@ -144,7 +144,7 @@ const ScrapePage = () => {
                     printTable(
                       allRef.current!,
                       `${
-                        data?.updatedProducts
+                        data?.products.length
                       } All Products - ${new Date().toLocaleDateString()}`
                     )
                   }
