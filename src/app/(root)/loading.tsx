@@ -10,7 +10,7 @@ const Loading = () => {
           alt="Loading"
           width={400}
           height={400}
-          className="rounded-md"
+          className="rounded-md object-contain"
         />
         <p className="text-center font-semibold">Loading...</p>
       </div>
