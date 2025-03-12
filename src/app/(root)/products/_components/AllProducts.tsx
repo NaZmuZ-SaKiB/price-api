@@ -9,6 +9,7 @@ import { useProductGetAllQuery } from "@/lib/modules/product/product.query";
 import { TProduct } from "@/lib/modules/product/product.type";
 import { useSearchParams } from "next/navigation";
 import DeleteNotInStockButton from "./DeleteNotInStockButton";
+import Loading from "../../loading";
 
 const AllProducts = () => {
   const searchParams = useSearchParams();
@@ -18,7 +19,7 @@ const AllProducts = () => {
   const products: TProduct[] = productData?.data || [];
 
   if (productLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductListDoneButton from "./ProductListDoneButton";
 import { cn } from "@/lib/utils";
+import RelaxImage from "@/assets/images/relax.gif";
 
 type TProps = {
   products: TProduct[];
@@ -67,7 +68,14 @@ const ProductList = ({ products, highlight = false }: TProps) => {
                 colSpan={6}
                 className="text-center text-2xl !py-5 font-semibold"
               >
-                No Products
+                <Image
+                  src={RelaxImage}
+                  alt="Relax"
+                  width={200}
+                  height={200}
+                  className="mx-auto rounded-md mb-5 object-contain object-center"
+                />
+                <span>No Products</span>
               </td>
             </tr>
           )}

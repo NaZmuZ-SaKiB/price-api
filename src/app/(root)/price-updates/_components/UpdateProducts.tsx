@@ -8,6 +8,7 @@ import ProductList from "@/components/Shared/ProductList";
 import { useProductGetAllQuery } from "@/lib/modules/product/product.query";
 import { TProduct } from "@/lib/modules/product/product.type";
 import { useSearchParams } from "next/navigation";
+import Loading from "../../loading";
 
 const UpdateProducts = () => {
   const searchParams = useSearchParams();
@@ -17,7 +18,7 @@ const UpdateProducts = () => {
   const products: TProduct[] = productData?.data || [];
 
   if (productLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

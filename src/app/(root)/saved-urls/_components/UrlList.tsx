@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import UrlDeleteButton from "./UrlDeleteButton";
 import DataPagination from "@/components/Shared/DataPagination";
+import Loading from "../../loading";
 
 const UrlList = () => {
   const searchParams = useSearchParams();
@@ -18,7 +19,7 @@ const UrlList = () => {
   const urls: TUrl[] = urlData?.data || [];
 
   if (urlsLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

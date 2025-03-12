@@ -2,6 +2,7 @@
 
 import { useDashboardQuery } from "@/lib/modules/token/token.query";
 import Link from "next/link";
+import Loading from "../(root)/loading";
 
 type TDashboardData = {
   totalTokens: number;
@@ -17,7 +18,7 @@ const DashboardData = () => {
     useDashboardQuery();
   const dashboard: TDashboardData = dashboardData?.data;
 
-  if (dashboardLoading) return <div>Loading...</div>;
+  if (dashboardLoading) return <Loading />;
 
   return (
     <div>

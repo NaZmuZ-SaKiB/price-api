@@ -7,6 +7,7 @@ import formatDate from "@/utils/formatDate";
 import formatTime12HrFormat from "@/utils/formatTime12Hr";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import Loading from "../../loading";
 
 const HistoryList = () => {
   const searchParams = useSearchParams();
@@ -16,7 +17,7 @@ const HistoryList = () => {
   const history: THistory[] = historyData?.data || [];
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <div>

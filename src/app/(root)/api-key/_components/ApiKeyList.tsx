@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import ApiKeyDeleteButton from "./ApiKeyDeleteButton";
 import DataPagination from "@/components/Shared/DataPagination";
+import Loading from "../../loading";
 
 const ApiKeyList = () => {
   const [viewToken, setViewToken] = useState<boolean>(false);
@@ -21,7 +22,7 @@ const ApiKeyList = () => {
   const apiKeys: TToken[] = apiKeyData?.data || [];
 
   if (apiKeyLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
