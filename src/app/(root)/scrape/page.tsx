@@ -69,33 +69,7 @@ const ScrapePage = () => {
         </html>
     `);
     doc.close();
-
-    // Wait for all images to load before printing
-    const images = printWindow.document.querySelectorAll("img");
-    let imagesToLoad = images.length;
-
-    if (imagesToLoad === 0) {
-      // If there are no images, print immediately
-      printWindow.print();
-    } else {
-      // Wait for all images to load
-      images.forEach((img) => {
-        img.onload = () => {
-          imagesToLoad--;
-          if (imagesToLoad === 0) {
-            // All images are loaded, print the document
-            printWindow.print();
-          }
-        };
-        img.onerror = () => {
-          imagesToLoad--;
-          if (imagesToLoad === 0) {
-            // All images are loaded (or failed), print the document
-            printWindow.print();
-          }
-        };
-      });
-    }
+    printWindow.print();
   };
 
   return (
